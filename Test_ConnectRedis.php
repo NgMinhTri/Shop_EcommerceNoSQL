@@ -1,6 +1,6 @@
 <?php
 require './config/configRedis.php';
-$client->set('Name', 'Minh Tri Nguyen');
-$value = $client->get('Name');
+
+$value = $client->get('adminUser');
 echo $value;
 ?>
