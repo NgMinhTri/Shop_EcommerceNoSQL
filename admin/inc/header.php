@@ -56,7 +56,7 @@
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
-                            <li>Hello Admin</li>
+                            <li>Hello <?php echo Session::get('adminUser')?></li>
                             <?php 
                                 if(isset($_GET['action']) && $_GET['action']=='logout'){
                                     Session::destroy();
