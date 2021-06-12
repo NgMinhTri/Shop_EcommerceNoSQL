@@ -5,5 +5,6 @@ require './config/configMongoDB.php';
 $db = $con->TestSuccessPHP_mongoDB;
  	$collection = $db->CollectionFirst;
 
- 	$collection->insertOne(["Name" =>"Minh Tri sdhfdsjhdsjfsj"]);
+$name = "ABCHSDGFWJYFD";
+ 	$collection->insertOne(["Name" =>"$name", "OK"=>"ok"]);
 ?>

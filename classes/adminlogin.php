@@ -33,7 +33,7 @@
 				{					
 					$adminSet = $value;										
 					$redis->set($key, serialize($adminSet));
-					$redis->expire($key, 10);   //THỜI GIAN LƯU GIỮ THÔNG TIN ADMIN LÀ BAO NHIÊU S(10S)
+					$redis->expire($key, 86400);   //THỜI GIAN LƯU GIỮ THÔNG TIN ADMIN LÀ BAO NHIÊU S(10S)
 
 					$adminGet = unserialize($redis->get($key));
 					 if($adminGet['adminUser'] == $value['adminUser'] && $adminGet['adminPass'] == $value['adminPass'])
