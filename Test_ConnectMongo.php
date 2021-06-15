@@ -2,9 +2,14 @@
 // Prepend a base path if Predis is not available in your "include_path".
 require './config/configMongoDB.php';
 
-$db = $con->TestSuccessPHP_mongoDB;
- 	$collection = $db->CollectionFirst;
+	$con = new MongoDB\Client("mongodb://localhost:27017");		
+			$db = $con->ShopEcommerceNoSQL;
+ 			$collection = $db->Product;
 
-$name = "ABCHSDGFWJYFD";
- 	$collection->insertOne(["Name" =>"$name", "OK"=>"ok"]);
+ 			$document = $collection -> find();
+ 			foreach ($document as $doc) {
+ 				print_r($doc);
+ 			}
+ 			print_r($doc->name);
+		
 ?>

@@ -1,17 +1,23 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <?php include '../classes/product.php'; ?>
+<?php include '../classes/category.php'; ?>
 <?php
-    // gọi class category
-    $pd = new product(); 
+
+    $pd = new Product(); 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-        // LẤY DỮ LIỆU TỪ PHƯƠNG THỨC Ở FORM POST
-        $insertProduct = $pd -> insertProductroduct($_POST, $_FILES); // hàm check catName khi submit lên
+
+        $insertProduct = $pd -> insertProduct($_POST, $_FILES); 
     }
-?>
+  ?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Add New Product</h2>
+        <h2>Thêm sản phẩm mới</h2>
+        <?php 
+            if(isset($insertProduct)){
+                echo $insertProduct;
+            }
+         ?> 
         <div class="block">               
          <form action="" method="post" enctype="multipart/form-data">
             <table class="form">
@@ -21,19 +27,29 @@
                         <label>Name</label>
                     </td>
                     <td>
-                        <input name="name" type="text" placeholder="Enter Product Name..." class="medium" />
+                        <input name="NameProduct" type="text" placeholder="Nhập tên sản phẩm..." class="medium" />
                     </td>
                 </tr>
 				<tr>
                     <td>
                         <label>Category</label>
                     </td>
-                    <td>
-                        <select id="select" name="category">
-                            <option>Select Category</option>
-                            <option value="1">Category One</option>
-                            <option value="2">Category Two</option>
-                            <option value="3">Category Three</option>
+                    <td>                
+                        <select id="select" name="CategoryProduct">
+                            <option>Chọn danh mục</option>
+                                <?php 
+                                    $category = new Category();
+                                    $catlist = $category->selectCategory();
+                                    foreach ($catlist as $doc) 
+                                    {
+                                     
+
+                                    
+                               ?>
+                               <option value=" <?php  print_r($doc); ?> "><?php print_r($doc); ?></option>
+                               <?php
+                                    }
+                               ?>
                         </select>
                     </td>
                 </tr>
@@ -42,11 +58,11 @@
                         <label>Brand</label>
                     </td>
                     <td>
-                        <select id="select" name="brand">
-                            <option>Select Brand</option>
-                            <option value="1">Brand One</option>
-                            <option value="2">Brand Two</option>
-                            <option value="3">Brand Three</option>
+                        <select id="select" name="BrandProduct">
+                            <option>Chọn nhãn hiệu</option>
+                            
+                            <option value=""></option>
+                            
                         </select>
                     </td>
                 </tr>
@@ -56,7 +72,7 @@
                         <label>Description</label>
                     </td>
                     <td>
-                        <textarea class="tinymce"></textarea>
+                        <textarea name="DescriptionProduct" class="tinymce"></textarea>
                     </td>
                 </tr>
 				<tr>
@@ -64,7 +80,7 @@
                         <label>Price</label>
                     </td>
                     <td>
-                        <input name="price" type="text" placeholder="Enter Price..." class="medium" />
+                        <input name="PriceProduct" type="text" placeholder="Nhập giá..." class="medium" />
                     </td>
                 </tr>
             
@@ -82,10 +98,10 @@
                         <label>Product Type</label>
                     </td>
                     <td>
-                        <select id="select" name="type">
+                        <select id="select" name="Type">
                             <option>Select Type</option>
-                            <option value="1">Featured</option>
-                            <option value="2">Non-Featured</option>
+                            <option value="Nổi bậc">Nổi bậc</option>
+                            <option value="Không nổi bậc">Không nổi bậc</option>
                         </select>
                     </td>
                 </tr>
@@ -93,7 +109,7 @@
 				<tr>
                     <td></td>
                     <td>
-                        <input type="submit" name="submit" Value="Save" />
+                        <input type="submit" name="submit" Value="Lưu" />
                     </td>
                 </tr>
             </table>

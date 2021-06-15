@@ -1,6 +1,8 @@
 {
     "require": {
         "mongodb/mongodb": "^1.8",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "laudis/neo4j-php-client": "^1.3",
+        "graphaware/neo4j-php-client": "^3.0"
     }
 }
