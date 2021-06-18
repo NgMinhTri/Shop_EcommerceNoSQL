@@ -186,7 +186,7 @@ input[type="number"] {
   border: 1px solid #c0bebe;
   border-radius: 3px;
   float: left;
-  height: 284px;
+  height: 100%;
   padding: 20px;
   width: 712px;
 }
@@ -603,6 +603,7 @@ p.note{
 	float:left;
 	margin: 1% 0 1% 1.6%;
 	box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	height:600px;
 }
 .grid_1_of_4:first-child { 
 	margin-left: 0; 
@@ -612,6 +613,7 @@ p.note{
 	padding:1.5%;
 	text-align:center;
 	position:relative; 
+	height: 450px;
 }
 .images_1_of_4  img{
 	max-width:100%;
@@ -2474,4 +2476,15 @@ p.terms {
 		width:92%;
 		padding:4%;
 	}
+}
+
+.error{
+	width: 92%;
+	margin: 0px auto;
+	padding: 10px;
+	border: 1px solid #a94442;
+	color: #a94442;
+	background: #f2dede;
+	border-radius: 5px;
+	text-align: left;
 }
