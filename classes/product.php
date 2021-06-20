@@ -30,6 +30,7 @@
 			$file_ext = strtolower(end($div));
 			$unique_image = substr(md5(time()), 0,10).'.'.$file_ext;
 			$uploaded_image = "uploads/".$unique_image;
+			
 
 			if($name == '' || $description == "" || $price == "" || $category == "" || $brand == "")
 			{

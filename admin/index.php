@@ -4,7 +4,8 @@
             <div class="box round first grid">
                 <h2> Trang chủ</h2>
                 <div class="block">               
-                  Chào mừng bạn đến với trang quản lý Shop       
+                  Chào mừng bạn đến với trang quản lý Shop  
+                   
                 </div>
             </div>
         </div>
