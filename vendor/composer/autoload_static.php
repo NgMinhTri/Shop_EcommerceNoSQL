@@ -4,10 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561
+class ComposerStaticInitf8799941ba785b0e6699b3c0f0074425
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
+        '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
@@ -18,6 +20,8 @@ class ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561
         ),
         'P' => 
         array (
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
             'Predis\\' => 7,
             'PackageVersions\\' => 16,
         ),
@@ -25,9 +29,31 @@ class ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561
         array (
             'MongoDB\\' => 8,
         ),
+        'L' => 
+        array (
+            'Laudis\\TypedEnum\\' => 17,
+            'Laudis\\Neo4j\\' => 13,
+        ),
         'J' => 
         array (
             'Jean85\\' => 7,
+        ),
+        'H' => 
+        array (
+            'Http\\Message\\' => 13,
+            'Http\\Discovery\\' => 15,
+        ),
+        'D' => 
+        array (
+            'Ds\\' => 3,
+        ),
+        'C' => 
+        array (
+            'Clue\\StreamFilter\\' => 18,
+        ),
+        'B' => 
+        array (
+            'Bolt\\' => 5,
         ),
     );
 
@@ -35,6 +61,15 @@ class ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
         'Predis\\' => 
         array (
@@ -48,9 +83,38 @@ class ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561
         array (
             0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
         ),
+        'Laudis\\TypedEnum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laudis/typed-enum/src',
+        ),
+        'Laudis\\Neo4j\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laudis/neo4j-php-client/src',
+        ),
         'Jean85\\' => 
         array (
             0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
+        ),
+        'Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
+            1 => __DIR__ . '/..' . '/php-http/message/src',
+        ),
+        'Http\\Discovery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/discovery/src',
+        ),
+        'Ds\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-ds/php-ds/src',
+        ),
+        'Clue\\StreamFilter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clue/stream-filter/src',
+        ),
+        'Bolt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stefanak-michal/bolt/src',
         ),
     );
 
@@ -65,9 +129,9 @@ class ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2930b6dbcd5317561b6da0b2246e2561::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf8799941ba785b0e6699b3c0f0074425::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf8799941ba785b0e6699b3c0f0074425::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf8799941ba785b0e6699b3c0f0074425::$classMap;
 
         }, null, ClassLoader::class);
     }
