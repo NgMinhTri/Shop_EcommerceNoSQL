@@ -1,8 +1,8 @@
 <?php require 'vendor/autoload.php'?>
 <?php include 'inc/header.php';?>
-<?php include 'classes/cart.php';?>
+
 <?php 
-	$cart = new Cart();
+	
 	if(!isset($_GET['productid']) || $_GET['productid'] == NULL)
 	{
          echo "<script> window.location = '404.php' </script>";       
@@ -15,10 +15,7 @@
 		$collection = $db->Product;
 		$document = $collection->findOne( array( '_id' => new MongoDB\BSON\ObjectId ($id )) );
 	}
-	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-		$quantity = $_POST['quantity'];
-		$addToCart = $cart->addProductToCart($id, $quantity);
-	}
+	
 
  ?>
  <div class="main">
