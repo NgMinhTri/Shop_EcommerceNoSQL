@@ -38,7 +38,7 @@ final class Versions
   'mongodb/mongodb' => '1.8.0@953dbc19443aa9314c44b7217a16873347e6840d',
   'predis/predis' => 'v1.1.7@b240daa106d4e02f0c5b7079b41e31ddf66fddf8',
   'symfony/polyfill-php80' => 'v1.23.0@eca0bf41ed421bed1b57c4958bab16aa86b757d0',
-  '__root__' => 'dev-master@9c018d4eddd50b4c5a4b64be86907acdf49699b1',
+  '__root__' => 'dev-master@6ecb865c5178d8dafe0212a48cda53928ef5c231',
 );
 
     private function __construct()

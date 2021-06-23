@@ -1,6 +1,12 @@
 <?php
-require './config/configRedis.php';
+require './vendor/autoload.php';
+Predis\Autoloader::register();
 
-$value = $client->get('adminUser');
-echo $value;
+$client = new Predis\Client();
+
+$client->set('demo1', 'nguyen');
+$client->append('demo1', 'minh tri'); 
+$result = $client->get('demo1'); 
+echo $result;
+
 ?>
