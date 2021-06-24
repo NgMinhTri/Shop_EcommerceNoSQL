@@ -56,5 +56,17 @@
 					return $alert;
 			}											
 		}
+
+		// / / When the login is successfully saved
+		//  / / Processing business logic
+		//  / / Save the session
+		//  Session_start();//Open session
+		//  Redis::set($uid.'logintoken',$session_id());//Save the current session to a key spliced ​​with the current user id to ensure uniqueness
+		 
+		//  / / Each time the user clicks into a method to make a judgment
+		// $logintoken = Redis::get($uid.'logintoken');
+		//      if($logintoken<>session_id()){
+		//        //The account is forced to go offline, clear the current session, and feedback to the user information.
+		// }
 	}
 ?>

@@ -36,10 +36,10 @@
 			</div>
 			<div class="content_bottom">
     		<div class="heading">
-    		<h3>Sản phẩm</h3>
+    			<h3>Sản phẩm</h3>
     		</div>
     		<div class="clear"></div>
-    	</div>
+    		</div>
 			<div class="section group">
 				<?php
                     $con = new MongoDB\Client("mongodb://localhost:27017");     

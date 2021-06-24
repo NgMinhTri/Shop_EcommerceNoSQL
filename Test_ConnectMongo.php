@@ -6,9 +6,13 @@ require './vendor/autoload.php';
 			$db = $con->ShopEcommerceNoSQL;
  			$collection = $db->Product;
             $id = "60ca0955b05400002100304a";
- 			$document = $collection -> findOne(['_id' => new MongoDB\BSON\ObjectID( $id )]);
+ 			$document = $collection -> find(['name'  => new MongoDB\BSON\Regex('S21')
+ 		]);
  			
- 				print_r($document) ;
+ 				foreach ($document as $doc) {
+ 					print_r($doc->name);
+ 					# code...
+ 				}
  			
  			
  			
