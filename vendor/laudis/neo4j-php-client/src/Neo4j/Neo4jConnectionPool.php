@@ -13,15 +13,14 @@ declare(strict_types=1);
 
 namespace Laudis\Neo4j\Neo4j;
 
-use function array_filter;
 use Bolt\connection\StreamSocket;
 use Exception;
 use Laudis\Neo4j\Bolt\BoltDriver;
 use Laudis\Neo4j\Common\Uri;
 use Laudis\Neo4j\Contracts\ConnectionPoolInterface;
-use Laudis\Neo4j\Contracts\DriverInterface;
 use Laudis\Neo4j\Enum\AccessMode;
 use Laudis\Neo4j\Enum\RoutingRoles;
+use Laudis\Neo4j\Types\CypherList;
 use Psr\Http\Message\UriInterface;
 use function random_int;
 use function str_starts_with;
@@ -51,7 +50,7 @@ final class Neo4jConnectionPool implements ConnectionPoolInterface
      */
     public function acquire(UriInterface $uri, AccessMode $mode): StreamSocket
     {
-        $table = $this->routingTable(BoltDriver::create($uri));
+        $table = $this->routingTable($uri);
         $server = $this->getNextServer($table, $mode);
         $uri = Uri::create($server);
 
@@ -77,10 +76,10 @@ final class Neo4jConnectionPool implements ConnectionPoolInterface
      *
      * @throws Exception
      */
-    private function routingTable(DriverInterface $driver): RoutingTable
+    private function routingTable(UriInterface $uri): RoutingTable
     {
         if ($this->table === null || $this->table->getTtl() < time()) {
-            $session = $driver->createSession();
+            $session = BoltDriver::create($uri)->createSession();
             $row = $session->run(
                 'CALL dbms.components() yield versions UNWIND versions as version RETURN version'
             )->first();
@@ -93,15 +92,15 @@ final class Neo4jConnectionPool implements ConnectionPoolInterface
                 /** @var iterable<array{addresses: list<string>, role:string}> $values */
                 $values = [];
                 foreach ($response as $server) {
-                    /** @var list<string> $addresses */
+                    /** @var CypherList<string> $addresses */
                     $addresses = $server->get('addresses');
-                    $addresses = array_filter($addresses, static fn (string $x) => str_starts_with($x, 'bolt://'));
+                    $addresses = $addresses->filter(static fn (string $x) => str_starts_with($x, 'bolt://'));
                     /**
                      * @psalm-suppress InvalidArrayAssignment
                      *
                      * @var array{addresses: list<string>, role:string}
                      */
-                    $values[] = ['addresses' => $addresses, 'role' => $server->get('role')];
+                    $values[] = ['addresses' => $addresses->toArray(), 'role' => $server->get('role')];
                 }
 
                 $this->table = new RoutingTable($values, time() + 3600);

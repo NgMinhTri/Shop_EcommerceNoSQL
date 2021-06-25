@@ -13,8 +13,7 @@ $client = Laudis\Neo4j\ClientBuilder::create()
 
     
     
-    $results = $client->run('MATCH (n) RETURN n LIMIT 25');
-    print_r($results);
+    $client->run("CREATE(n:Customer {name: 'Han', password: '123'})");
     
 
     //$results->getResults()->first()->get('id');

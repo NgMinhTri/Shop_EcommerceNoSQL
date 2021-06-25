@@ -8,8 +8,9 @@
 				<div class="row searchFilter" >
 					<div class="col-sm-12">
 						<form action="" method="get">
-  							<h4>Country</h4>
+  							<h4>Nơi bán</h4>
 							<ul class="category_filters" >
+		
 								<li >
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" value="All" id="flexCheckDefault" name ="country[]">
@@ -19,47 +20,47 @@
 									</div></li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Vietnam" id="flexCheckDefault" name ="country[]">
+									<input class="form-check-input" type="checkbox" value="Hồ Chí Minh" id="flexCheckDefault" name ="country[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										Vietnam
+										Hồ Chí Minh
 									</label>
 									</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="America" id="flexCheckDefault" name ="country[]">
+									<input class="form-check-input" type="checkbox" value="Hà Nội" id="flexCheckDefault" name ="country[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										America
+										Hà Nội
 									</label>
 								</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Canada" id="flexCheckDefault" name ="country[]">
+									<input class="form-check-input" type="checkbox" value="Đà Nẵng" id="flexCheckDefault" name ="country[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										Canada
+										Đà Nẵng
 									</label>
 									</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="France" id="flexCheckDefault" name ="country[]">
+									<input class="form-check-input" type="checkbox" value="Hải Phòng" id="flexCheckDefault" name ="country[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										France
+										Hải Phòng
 									</label>
 									</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Germany" id="flexCheckDefault" name="country[]">
+									<input class="form-check-input" type="checkbox" value="Cà Mau" id="flexCheckDefault" name="country[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										Germany
+										Cà Mau
 									</label>
 									</div></li>
 								</li>
 							</ul>
 							
-							<h4>Category</h4>
+							<h4>Theo danh mục</h4>
 							<ul class="category_filters" >
 								<li >
 								<div class="form-check">
@@ -70,46 +71,90 @@
 									</div></li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Book" id="flexCheckDefault" name ="radios[]">
+									<input class="form-check-input" type="checkbox" value="Điện thoại thông minh" id="flexCheckDefault" name ="radios[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										Book
+										Điện thoại thông minh
 									</label>
 									</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Computer" id="flexCheckDefault" name ="radios[]">
+									<input class="form-check-input" type="checkbox" value="Hàng điện tử" id="flexCheckDefault" name ="radios[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										Computer
+										Hàng điện tử
 									</label>
 								</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Toy" id="flexCheckDefault" name ="radios[]">
+									<input class="form-check-input" type="checkbox" value="Thời trang" id="flexCheckDefault" name ="radios[]">
 									<label class="form-check-label" for="flexCheckDefault">
-									Toy
+									Thời trang
 									</label>
 									</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Phone" id="flexCheckDefault" name ="radios[]">
+									<input class="form-check-input" type="checkbox" value="Laptop" id="flexCheckDefault" name ="radios[]">
 									<label class="form-check-label" for="flexCheckDefault">
-									Phone
+									Laptop
+									</label>
+									</div></li>
+								</li>
+	
+							</ul>
+							<h4>Khoảng giá</h4>
+							<ul class="category_filters" >
+		
+								<li >
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="1000000" id="flexCheckDefault" name ="gia[]">
+									<label class="form-check-label" for="flexCheckDefault">
+										Thấp hơn 1tr
+									</label>
+									</div></li>
+								<li >
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="10000000" id="flexCheckDefault" name ="gia[]">
+									<label class="form-check-label" for="flexCheckDefault">
+										Thấp hơn 10tr
 									</label>
 									</div></li>
 								</li>
 								<li >
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="Best Seller" id="flexCheckDefault" name="radios[]">
+									<input class="form-check-input" type="checkbox" value="20000000" id="flexCheckDefault" name ="gia[]">
 									<label class="form-check-label" for="flexCheckDefault">
-										Best Seller
+										Thấp hơn 20tr
+									</label>
+								</div></li>
+								</li>
+								<li >
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="30000000" id="flexCheckDefault" name ="gia[]">
+									<label class="form-check-label" for="flexCheckDefault">
+										Thấp hơn 30tr
+									</label>
+									</div></li>
+								</li>
+								<li >
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="40000000" id="flexCheckDefault" name ="gia[]">
+									<label class="form-check-label" for="flexCheckDefault">
+										Thấp hơn 40tr
+									</label>
+									</div></li>
+								</li>
+								<li >
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="50000000" id="flexCheckDefault" name="gia[]">
+									<label class="form-check-label" for="flexCheckDefault">
+										Thấp hơn 50tr
 									</label>
 									</div></li>
 								</li>
 							</ul>
-							<h4>Rating</h4>
+							<h4>Đánh giá</h4>
 							<ul class="category_filters" >
 								<li >
 								<div class="form-check">
@@ -149,30 +194,42 @@
 				</div></div>
     	</div>
 		<?php 
-		if (isset($_GET['radios'])||isset($_GET['country'])||isset($_GET['rating'])){
+		if (isset($_GET['radios'])||isset($_GET['country'])||isset($_GET['rating'])||isset($_GET['gia'])){
 			if(!isset($_GET['radios'])||($_GET['radios'][0] =="All")){
 				$radios=[];
 				$temp=$collection->find();
 				foreach($temp as $sin){
-					array_push($radios,$sin->Category);
+					array_push($radios,$sin->category);
 				}
 				
 			}
 			else {
 				$radios = $_GET['radios'];
 			}
+
 			if(!isset($_GET['country'])||($_GET['country'][0] =="All")){
 				$country=[];
 				$temp=$collection->find();
 				foreach($temp as $sin){
-					foreach($sin->Inventory as $sin1){
-						array_push($country,$sin1->Country);
-					}
+						array_push($country,$sin->Inventory->City);
 				}
 			}
 			else {
 				$country = $_GET['country'];
 			}
+			if(!isset($_GET['gia'])){
+				$gia=[100000000];
+			}
+			else {
+				$gia = $_GET['gia'];
+			}
+			$gia1 =100000000;
+			foreach($gia as $singia){
+				if($singia<=$gia1){
+					$gia1 = $singia;
+				}
+			}
+
 			if(!isset($_GET['rating'])){
 				$rating=[0];
 			}
@@ -187,7 +244,7 @@
 					$rate = $sinrate;
 				}
 			}
-			$filterproduct = $collection->find(array('Inventory.Country' => array('$in' => $country), 'Category' => array('$in' => $radios), 'Rating' => array('$gte'=>intval($rate))));
+			$filterproduct = $collection->find(array('Inventory.City' => array('$in' => $country), 'category' => array('$in' => $radios), 'Rating' => array('$gte'=>intval($rate)),'price' => array('$lte'=>intval($gia1))));
 			// foreach($country as $sincountry){
 			// 	foreach($radios as $sinradios){
 					foreach ($filterproduct as $doc){ ?>
@@ -195,23 +252,21 @@
 						<div class="grid_1_of_4 images_1_of_4">
 							<a href="preview-3.html"><img src="images/feature-pic1.png" alt="" /></a>
 							<h2> 
-								<?php echo $doc->Name; ?>
+								<?php echo $doc->name; ?>
 							</h2>
+							<p><?php echo $doc->Inventory->City; ?>
+							</p></br>
 							<p><?php
-							foreach($doc->Inventory as $sincountry){
-								echo $sincountry->Country;} ?>
+								echo $doc->description; ?>
 							</p>
 							<p><?php
-								echo $doc->Description; ?>
-							</p>
-							<p><?php
-							foreach($doc->Category as $sincat){
+							foreach($doc->category as $sincat){
 								echo $sincat; ?></br><?php }?>
 							</p>
 							<p><?php 
-								echo $doc->Price; ?></p>
-							<input type="hidden" name="name" value="<?php echo $doc->Name; ?>">
-							<input type="hidden" name="price" value="<?php echo $doc->Price; ?>">
+								echo $doc->price; ?></p>
+							<input type="hidden" name="name" value="<?php echo $doc->name; ?>">
+							<input type="hidden" name="price" value="<?php echo $doc->price; ?>">
 							<button type="submit" name ='add_to_cart'>Add to Cart</button>
 						</div>
 					</form>
@@ -223,16 +278,23 @@
 				<div class="grid_1_of_4 images_1_of_4">
 					 <a href="preview-3.html"><img src="images/feature-pic1.png" alt="" /></a>
 					 <h2> 
-						<?php echo $doc->Name; ?>
+						<?php echo $doc->name; ?>
 					 </h2>
 					 <p><?php
-						echo $doc->Description; ?>
+							foreach($doc->category as $sincat){
+								echo $sincat; ?></br><?php }?>
+							</p>
+							<p><?php echo $doc->Inventory->City; ?>
+							</p></br>
+					 <p><?php
+						echo $doc->description; ?>
 					</p>
+
 					 <p><?php 
-						echo $doc->Price; ?></p>
+						echo $doc->price; ?></p>
 				     <button type="submit" name ='add_to_cart'>Add to Cart</button>
-					 <input type="hidden" name="name" value="<?php echo $doc->Name; ?>">
-					 <input type="hidden" name="price" value="<?php echo $doc->Price; ?>">
+					 <input type="hidden" name="name" value="<?php echo $doc->name; ?>">
+					 <input type="hidden" name="price" value="<?php echo $doc->price; ?>">
 				</div>
 			</form>
 		<?php }} ?>

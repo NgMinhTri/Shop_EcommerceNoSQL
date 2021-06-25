@@ -9,9 +9,5 @@ require './vendor/autoload.php';
  			$document = $collection -> findOne(['_id' => new MongoDB\BSON\ObjectID( $id )]);
  			
  				print_r($document) ;
- 			
- 			
- 			
- 			
 		
 ?>

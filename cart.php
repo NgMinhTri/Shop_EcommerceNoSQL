@@ -12,10 +12,10 @@ include 'classes/header.php';
 						<table class="tblone">
 							<tr>
 								<th width="20%">Product Name</th>
-								<th width="10%">Image</th>
 								<th width="15%">Price</th>
 								<th width="25%">Quantity</th>
 								<th width="20%">Total Price</th>
+								<th width="10%">Check</th>
 								<th width="10%">Action</th>
 							</tr>
 							
@@ -25,7 +25,6 @@ include 'classes/header.php';
 										echo"
 										<tr>
 										<td>$value[name]</td>
-										<td>a</td>
 										<td>$value[Price]<input type='hidden' class = 'iprice' value='$value[Price]'></td>
 										<td>
 										<form method='POST' action='classes/manage_cart.php'>
@@ -33,7 +32,11 @@ include 'classes/header.php';
 											<input type='hidden' name = 'name' value='$value[name]'>
 										</form>
 										</td>
+
 										<td class = 'itotal'></td>
+										<td>
+											<input type ='checkbox' name = 'check[]' value='$value[name]'>
+										</td>
 										<form action ='classes/manage_cart.php' method ='POST'>
 											<td><button class = 'btn btn-outline-danger' name ='Remove'>Remove</button></td>
 											<input type='hidden' name = 'name' value='$value[name]'>

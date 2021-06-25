@@ -2,6 +2,13 @@
     "require": {
         "mongodb/mongodb": "^1.8",
         "predis/predis": "^1.1",
-        "laudis/neo4j-php-client": "^2.0"
+        "laudis/neo4j-php-client": "^2.0",
+        "php-http/discovery": "^1.14",
+        "php-http/curl-client": "^2.2",
+        "guzzlehttp/psr7": "^1.8",
+        "php-http/message": "^1.11",
+        "nyholm/psr7": "^1.4",
+        "nyholm/psr7-server": "^1.0",
+        "kriswallsmith/buzz": "^1.2"
     }
 }

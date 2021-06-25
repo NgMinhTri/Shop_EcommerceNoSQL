@@ -63,10 +63,11 @@ if (isset($_POST['register'])){
 	}
 	if (count($error)==0){
 		$password1=md5($password);
-		$sql = "INSERT INTO `tbl_admin`(adminUser, adminPass, adminEmail, `address`, city, country, zipcode, phone) VALUES ('$name', '$password1','$email','$address','$city','$country','$zipcode','$phone')";
+		$sql = "INSERT INTO `Customer`(Username, `Password`, Email, `Address`, City, Country, Zipcode, Phone) VALUES ('$name', '$password1','$email','$address','$city','$country','$zipcode','$phone')";
 		mysqli_query($conn, $sql);
 		$_SESSION['username']=$name;
 		$_SESSION['success']= 'You are logged in';
+		$client->run("CREATE(n:Customer {name: '$name', password: '$password1'})");
 		header('Location: products.php');
 	}
 }
@@ -81,16 +82,16 @@ if (isset($_POST['login'])){
 	}
 	if(count($error)==0){
 		$pass=md5($pass);
-		$sql = "Select adminUser,adminPass from tbl_admin where adminUser='$username' and adminPass='$pass'";
+		$sql = "Select Username,`Password` from Customer where Username='$username' and Password='$pass'";
 		$result = mysqli_query($conn, $sql);
 		if(mysqli_num_rows($result)==1){
 			$_SESSION['username']=$username;
 			$_SESSION['success']= 'You are logged in';
 			$results = $client->run("MATCH (a:Customer {name: '$username'})-[:HasCart]->(b)
-									RETURN b.name, b.price");
+									RETURN b.name, b.Price");
 			$i = 0;
 			foreach($results as $key=>$value){
-				$_SESSION['cart'][$i] = array('name'=>$value['b.name'], 'Price'=>$value['b.price'], 'Quantity'=>1);
+				$_SESSION['cart'][$i] = array('name'=>$value['b.name'], 'Price'=>$value['b.Price'], 'Quantity'=>1);
 				$i++;
 			}
 			header('Location: products.php');

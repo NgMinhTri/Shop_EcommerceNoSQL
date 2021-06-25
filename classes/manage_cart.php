@@ -82,10 +82,10 @@
             foreach($_SESSION['cart'] as $key=>$value){
                 if($value['name']==$_POST['name']){
                     $product=$_POST['name'];
-                    $storeQuan = $client->run("MATCH (n:Product{name: '$product'}) return n.quantity");
+                    $storeQuan = $client->run("MATCH (n:Product{name: '$product'}) return n.Quantity");
                     
                     foreach($storeQuan as $key1=> $value1){
-                        $Quan=$value1['n.quantity'];    
+                        $Quan=$value1['n.Quantity'];    
                     }
                     print_r($Quan);
                     if($_POST['Mod_Quantity']<=$Quan){
@@ -96,6 +96,7 @@
                         </script>";
                     }
                     else {
+                        print_r($Quan);
                         echo "<script>
                         alert('Not enough product available');
                         window.location.href='../cart.php';
@@ -105,24 +106,45 @@
             }            
         }
         if(isset($_POST['order'])){
-            $user =$_SESSION['username'];
-            foreach ($_SESSION['cart'] as $key=>$value){
-                $product = $value['name'];
-                $quantity = $value['Quantity'];  
-                unset($_SESSION['cart']);
-                $client->run("MATCH (n {name: '$user'})-[r:HasCart]->(m {name: '$product'})
-                    DELETE r");
-                $client->run("MATCH (a:Customer), (b:Product)
-                WHERE a.name = '$user' AND b.name = '$product'
-                CREATE (a)-[r:Buy{Quantity: $quantity, Date: datetime()}]->(b)
-                RETURN type(r)");
-                $client->run("MATCH (n {name: '$product'})
-                            SET n.quantity = n.quantity-$quantity");
-                echo "<script>
-                window.location.href='../Products.php';
+            echo "<script>
+                window.location.href='../order.php';
                 </script>";
-                
-             } 
         }
+        if (isset($_POST['finish'])){
+            $address = $_POST['address'];
+            $city = $_POST['city'];
+            $zipcode = $_POST['zipcode'];
+            $ward =$_POST['ward'];
+            $user =$_SESSION['username'];
+            $total=0;
+            foreach ($_SESSION['cart'] as $key=>$value){ 
+                $total=$value['Quantity']*$value['Price'];
+            }
+            $client->run("CREATE(n:Order {buyer: '$user',address: '$address',city: '$city',zipcode: '$zipcode',ward: '$ward', total: $total,ship: 12000,Date: datetime()})");
+            $client->run("MATCH (a:Customer), (b:Order)
+            WHERE a.name = '$user' AND b.buyer = '$user'
+            CREATE (a)-[r:Has]->(b)
+            RETURN type(r)");
+           
+        foreach ($_SESSION['cart'] as $key=>$value){
+            $product = $value['name'];
+            $quantity = $value['Quantity'];  
+            unset($_SESSION['cart'][$key]);
+            $client->run("MATCH (n {name: '$user'})-[r:HasCart]->(m {name: '$product'})
+                DELETE r");
+            
+            $client->run("MATCH (a:Order), (b:Product)
+            WHERE a.buyer = '$user' AND b.name = '$product'
+            CREATE (a)-[r:Buy{Quantity: $quantity}]->(b)
+            RETURN type(r)");
+            $client->run("MATCH (n {name: '$product'})
+                        SET n.Quantity = n.Quantity-$quantity");
+            echo "<script>
+            window.location.href='../Products.php';
+            </script>";
+            
+            } 
+        
+        }      
     }
 ?>
